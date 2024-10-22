@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Electron Auto Update App</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/loading-animation.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="loading-animation">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <h1>Electron Auto Update</h1>
+      <p id="status">Initializing...</p>
+      <div id="messages"></div>
+      <div class="menu">
+        <button id="startApp" class="pulse">Start App</button>
+        <button id="checkUpdates">Check for Updates</button>
+      </div>
+    </div>
+    <script src="src/renderer.js"></script>
+  </body>
+</html>
