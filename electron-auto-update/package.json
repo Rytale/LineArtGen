@@ -1,32 +1,36 @@
 {
   "name": "electron-auto-update",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple Electron app with auto-update functionality",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder build --win --publish never",
-    "deploy": "electron-builder build --win --publish always"
+    "deploy": "node -e \"console.log('Starting deploy process...'); require('dotenv').config(); console.log('GH_TOKEN is ' + (process.env.GH_TOKEN ? 'set' : 'not set')); require('electron-builder').build({win: ['nsis'], publish: 'always'}).then(() => console.log('Deploy finished')).catch(err => console.error('Deploy failed:', err))\""
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Rytale",
+  "license": "MIT",
   "dependencies": {
     "electron-updater": "^6.1.1"
   },
   "devDependencies": {
-    "electron": "^26.2.1",
-    "electron-builder": "^24.6.4",
     "@electron/asar": "^3.2.4",
-    "@electron/osx-sign": "^1.0.4"
+    "@electron/osx-sign": "^1.0.4",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "electron": "^26.2.1",
+    "electron-builder": "^24.6.4"
   },
   "build": {
-    "appId": "com.example.electron-auto-update",
-    "productName": "Electron Auto Update App",
-    "publish": [{
-      "provider": "github",
-      "owner": "YOUR_GITHUB_USERNAME",
-      "repo": "YOUR_GITHUB_REPO_NAME"
-    }],
+    "appId": "net.rytale.lineartgen",
+    "productName": "LineArtGen",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "Rytale",
+        "repo": "LineArtGen"
+      }
+    ],
     "asar": true,
     "files": [
       "src/**/*",
